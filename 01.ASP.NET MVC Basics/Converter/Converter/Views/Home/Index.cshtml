@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    ViewBag.Kilo = new List<SelectListItem>()
+        {
+            new SelectListItem() { Text = "1000", Value = "1000" },
+            new SelectListItem() { Text = "1024", Value = "1024" },
+        };
+}
+
+@model Converter.Models.CalculatorRequestModel
+
+
+
+<div class="row">
+    <div class="col-md-4">
+        <img src="~/Content/binaryIcon.png" alt="Alternate Text" />
+        <h2 style="display:inline-block">Bit Calculator</h2>
+        @using (Html.BeginForm("Calculate", "Home", FormMethod.Get))
+        {
+            @Html.ValidationSummary(false)
+            @Html.LabelFor(m => m.Quantity, new { @class = "control-label" })
+            @Html.TextBoxFor(m => m.Quantity, new { @class = "form-control" })
+
+            @Html.LabelFor(m => m.Type, new { @class = "control-label" })
+            @Html.EnumDropDownListFor(m => m.Type, new { @class = "form-control" })
+
+            @Html.LabelFor(m => m.Kilo, new { @class = "control-label" })
+            @Html.DropDownListFor(m => m.Kilo, ViewBag.Kilo as List<SelectListItem>, new { @class = "form-control" })
+            <br />
+            <input type="submit" value="Calculate" class="btn btn-default" />
+            <br />
+            <hr />
+        }
+
+        @if (ViewBag.Result != null)
+        {
+            var result = ViewBag.Result as Dictionary<string, string>;
+            Html.RenderPartial("_Result", result);
+        }
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
