@@ -1,4 +1,4 @@
-﻿namespace MoviesInformation.Models.Movies
+﻿namespace MoviesInfo.Models.Movies
 {
     public class AllMoviesModel
     {

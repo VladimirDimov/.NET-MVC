@@ -1,4 +1,4 @@
-﻿namespace MoviesInformation.App_Start
+﻿namespace MoviesInfo.App_Start
 {
     using MoviesInfo.Data;
     using MoviesInfo.Data.Migrations;

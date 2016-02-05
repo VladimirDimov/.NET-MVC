@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@model List<MoviesInformation.Models.Movies.AllMoviesModel>
+@model List<MoviesInfo.Models.Movies.AllMoviesModel>
 
 <table class="table table-striped table-hover">
     <tr>
@@ -29,3 +29,8 @@
         </tr>
     }
 </table>
+
+@section Scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}

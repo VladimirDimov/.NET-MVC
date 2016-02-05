@@ -6,9 +6,9 @@ using System.Web;
 using AutoMapper.Mappers;
 using AutoMapper.QueryableExtensions;
 using MoviesInfo.Models;
-using MoviesInformation.Models.Movies;
+using MoviesInfo.Models.Movies;
 
-namespace MoviesInformation.App_Start
+namespace MoviesInfo.App_Start
 {
     public static class AutoMapperConfig
     {

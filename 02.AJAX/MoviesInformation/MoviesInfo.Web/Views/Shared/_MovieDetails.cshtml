@@ -1,12 +1,12 @@
-﻿@model MoviesInformation.Models.Movies.MovieDetailsView
+﻿@model MoviesInfo.Models.Movies.MovieDetailsView
 
 @{
     var containerId = $"movie-table-{@Model.Id}";
 }
 
-<tr>
+<tr id="@containerId">
     <th>
-        <table id="@containerId">
+        <table>
             <tr>
                 <th>Title</th>
                 <td>@Model.Title</td>
@@ -26,6 +26,10 @@
             <tr>
                 <th>Leading male role</th>
                 <td>@Model.LeadingMaleRoleName</td>
+            </tr>
+            <tr>
+                <th>Studio</th>
+                <td>@Model.StudioName</td>
             </tr>
             <tr>
                 <th>

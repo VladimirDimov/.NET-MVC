@@ -33,7 +33,7 @@ namespace MoviesInfo.Models
 
         public int? StudioId { get; set; }
 
-        public Studio Studio { get; set; }
+        public virtual Studio Studio { get; set; }
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {

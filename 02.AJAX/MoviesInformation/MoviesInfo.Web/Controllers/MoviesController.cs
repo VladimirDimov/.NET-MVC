@@ -1,14 +1,14 @@
 ﻿using AutoMapper.QueryableExtensions;
 using MoviesInfo.Models;
 using MoviesInfo.Services;
-using MoviesInformation.Models.Movies;
+using MoviesInfo.Models.Movies;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace MoviesInformation.Controllers
+namespace MoviesInfo.Controllers
 {
     public class MoviesController : Controller
     {
@@ -79,7 +79,8 @@ namespace MoviesInformation.Controllers
         public ActionResult Update(MovieUpdateModel model)
         {
             var movie = this.movies.Update(MovieUpdateModel.ToModel(model));
-            return PartialView("_MovieDetails", MovieDetailsView.GetFromModel(movie));
+            //return PartialView("_MovieDetails", MovieDetailsView.GetFromModel(movie));
+            return this.Details(movie.Id);
         }
 
         private ICollection<Person> GetAllPeople()

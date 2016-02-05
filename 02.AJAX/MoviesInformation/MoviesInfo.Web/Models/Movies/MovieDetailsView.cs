@@ -1,19 +1,19 @@
-﻿namespace MoviesInformation.Models.Movies
+﻿namespace MoviesInfo.Models.Movies
 {
-    using Microsoft.Ajax.Utilities;
     using MoviesInfo.Models;
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
+    using System.ComponentModel.DataAnnotations;
     using System.Linq.Expressions;
-    using System.Web;
 
     public class MovieDetailsView
     {
         public int Id { get; set; }
 
+        [Required]
+        [MaxLength(200)]
         public string Title { get; set; }
 
+        [Range(1900, 2500)]
         public int Year { get; set; }
 
         public int LeadingMaleRoleId { get; set; }
@@ -52,7 +52,8 @@
                 LeadingFemaleRoleId = (int)m.LeadingFemaleRoleId,
                 LeadingFemaleRoleName = $"{m.LeadingFemaleRole.FirstName} {m.LeadingFemaleRole.LastName}",
                 LeadingMaleRoleId = (int)m.LeadingMaleRoleId,
-                LeadingMaleRoleName = $"{m.LeadingMaleRole.FirstName} {m.LeadingMaleRole.LastName}"
+                LeadingMaleRoleName = $"{m.LeadingMaleRole.FirstName} {m.LeadingMaleRole.LastName}",
+                StudioName = m.Studio.Name
             };
         }
     }

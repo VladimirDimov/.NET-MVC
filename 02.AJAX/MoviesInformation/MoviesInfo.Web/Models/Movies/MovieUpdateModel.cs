@@ -1,14 +1,18 @@
 ﻿using MoviesInfo.Models;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
-namespace MoviesInformation.Models.Movies
+namespace MoviesInfo.Models.Movies
 {
     public class MovieUpdateModel
     {
         public int Id { get; set; }
 
+        [Required]
+        [MaxLength(200)]
         public string Title { get; set; }
 
+        [Range(1900, 2500)]
         public int Year { get; set; }
 
         [DisplayName("Leading male role")]
