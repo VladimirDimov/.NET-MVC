@@ -52,12 +52,18 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MoviesInfoDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\EfGenericRepository.cs" />
+    <Compile Include="Repository\IRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MoviesInfo.Helpers\MoviesInfo.Helpers.csproj">
+      <Project>{f51996c9-6aab-4310-a7fa-42c49e7db04e}</Project>
+      <Name>MoviesInfo.Helpers</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MoviesInfo.Models\MoviesInfo.Models.csproj">
       <Project>{d5f22f0d-3729-4b57-8175-e9cbc7b34e44}</Project>
       <Name>MoviesInfo.Models</Name>

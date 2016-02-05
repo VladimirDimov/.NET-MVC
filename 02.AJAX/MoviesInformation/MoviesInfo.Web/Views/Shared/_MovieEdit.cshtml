@@ -1,0 +1,50 @@
+﻿@model MoviesInformation.Models.Movies.MovieDetailsView
+
+@{
+    var containerId = $"movie-edit-table-{@Model.Id}";
+}
+
+<table id="@containerId">
+    <tr>
+        <th>
+            @using (Ajax.BeginForm("Update",
+                new AjaxOptions
+                {
+                    HttpMethod = "POST",
+                    UpdateTargetId = containerId,
+                    InsertionMode = InsertionMode.Replace
+                }))
+            {
+                @Html.AntiForgeryToken()
+
+                @Html.HiddenFor(m => m.Id)
+
+                @Html.LabelFor(m => m.Title, new { @class = "control-label" })
+                @Html.TextBoxFor(m => m.Title, new { @class = "form-control" })
+
+                @Html.LabelFor(m => m.Year, new { @class = "control-label" })
+                @Html.TextBoxFor(m => m.Year, new { @class = "form-control" })
+
+                @Html.LabelFor(m => m.LeadingMaleRoleId, new { @class = "control-label" })
+                @Html.DropDownListFor(m => m.LeadingMaleRoleId, ViewBag.People as List<SelectListItem>, new { @class = "form-control" })
+
+                @Html.LabelFor(m => m.LeadingFemaleRoleId, new { @class = "control-label" })
+                @Html.DropDownListFor(m => m.LeadingFemaleRoleId, ViewBag.People as List<SelectListItem>, new { @class = "form-control" })
+
+                @Html.LabelFor(m => m.DirectorId, new { @class = "control-label" })
+                @Html.DropDownListFor(m => m.DirectorId, ViewBag.People as List<SelectListItem>, new { @class = "form-control" })
+
+                @Html.LabelFor(m => m.StudioId, new { @class = "control-label" })
+                @Html.DropDownListFor(m => m.StudioId, ViewBag.Studios as List<SelectListItem>, new { @class = "form-control" })
+
+                <input type="submit" value="Submit" />
+            }
+        </th>
+    </tr>
+</table>
+
+<script>
+    function Complete() {
+
+    }
+</script>

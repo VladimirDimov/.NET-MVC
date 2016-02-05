@@ -49,14 +49,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Address.cs" />
-    <Compile Include="City.cs" />
-    <Compile Include="Country.cs" />
     <Compile Include="Genders.cs" />
     <Compile Include="Movie.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Street.cs" />
     <Compile Include="Studio.cs" />
   </ItemGroup>
   <ItemGroup>

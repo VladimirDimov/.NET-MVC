@@ -1,0 +1,62 @@
+﻿@model MoviesInformation.Models.Movies.MovieDetailsView
+
+@{
+    var containerId = $"movie-table-{@Model.Id}";
+}
+
+<tr>
+    <th>
+        <table id="@containerId">
+            <tr>
+                <th>Title</th>
+                <td>@Model.Title</td>
+            </tr>
+            <tr>
+                <th>Year</th>
+                <td>@Model.Year</td>
+            </tr>
+            <tr>
+                <th>Director</th>
+                <td>@Model.DirectorName</td>
+            </tr>
+            <tr>
+                <th>Leading female role</th>
+                <td>@Model.LeadingFemaleRoleName</td>
+            </tr>
+            <tr>
+                <th>Leading male role</th>
+                <td>@Model.LeadingMaleRoleName</td>
+            </tr>
+            <tr>
+                <th>
+                    @Ajax.ActionLink(
+                   "Delete",
+                   "Delete",
+                   new { id = @Model.Id },
+                   new AjaxOptions
+                   {
+                       Confirm = "Are you sure you want to delete?",
+                       HttpMethod = "DELETE",
+                       InsertionMode = InsertionMode.Replace,
+                       LoadingElementId = @containerId
+                   },
+                    new { @class = "btn btn-danger" })
+
+                    @Ajax.ActionLink(
+                   "Edit",
+                   "Edit",
+                   new { id = @Model.Id },
+                   new AjaxOptions
+                   {
+                       HttpMethod = "GET",
+                       UpdateTargetId = containerId,
+                       InsertionMode = InsertionMode.Replace
+                   },
+                   new { @class = "btn btn-primary" })
+
+                    <button class="btn btn-default" onclick="location.href = '@Url.Action("Cancel", "Movies")'"> Cancel </button>
+                </th>
+            </tr>
+        </table>
+    </th>
+</tr>

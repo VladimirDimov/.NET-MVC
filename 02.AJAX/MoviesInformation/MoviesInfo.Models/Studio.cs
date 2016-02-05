@@ -16,6 +16,7 @@ namespace MoviesInfo.Models
         public string Name { get; set; }
 
         [Required]
-        public Address Address { get; set; }
+        [MaxLength(50)]
+        public string Address { get; set; }
     }
 }

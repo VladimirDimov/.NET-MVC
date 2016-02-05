@@ -6,10 +6,12 @@ namespace MoviesInfo.Models
     public class Country
     {
         private ICollection<City> cities;
+        private ICollection<Address> address;
 
         public Country()
         {
             this.cities = new HashSet<City>();
+            this.address = new HashSet<Address>();
         }
 
         public int Id { get; set; }
@@ -23,6 +25,12 @@ namespace MoviesInfo.Models
         {
             get { return this.cities; }
             set { this.cities = value; }
+        }
+
+        public virtual ICollection<Address> Addresses
+        {
+            get { return this.address; }
+            set { this.address = value; }
         }
     }
 }
