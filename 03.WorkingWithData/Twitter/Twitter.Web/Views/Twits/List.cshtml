@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model IEnumerable<Twitter.Models.Twit>
+
+@using (Ajax.BeginForm("GetByAuthor", new AjaxOptions
+{
+    HttpMethod = "GET",
+    UpdateTargetId = "twits-container",
+    InsertionMode = InsertionMode.Replace
+}))
+{
+    <p>Filter by username</p>
+    @Html.DropDownList("Authors", null, new { name = "id" })
+    <input type="submit" value="Search" />
+}
+
+<div id="twits-container">
+    @Html.Partial("_Twits", Model)
+</div>
