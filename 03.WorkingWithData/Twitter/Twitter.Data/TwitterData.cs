@@ -60,7 +60,8 @@ namespace Twitter.Data
             return this.context.SaveChanges();
         }
 
-        private IRepository<T> GetRepository<T>() where T : class
+        private IRepository<T> GetRepository<T>() 
+		where T : class
         {
             if (!this.repositories.ContainsKey(typeof(T)))
             {
